@@ -12,7 +12,7 @@ export class AuthService extends PrismaClient implements OnModuleInit {
     this.$connect();
     this.logger.log('Connected to the database');
   }
-
+//
   async registerUser(registerUserDto: RegisterUserDto) {
     const { email, name, password } = registerUserDto;
     try {
