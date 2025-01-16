@@ -8,10 +8,10 @@ import { LoginUserDto } from './dto/login-user.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  /// Creamos nuestros métodos de authentication tendremos estos 3
   @MessagePattern('auth.register.user')
   registerUser(@Payload() registerUserDto: RegisterUserDto) {
-    return registerUserDto;
+    /// método del servicio
+    return this.authService.registerUser(registerUserDto);
   }
 
   @MessagePattern('auth.login.user')
