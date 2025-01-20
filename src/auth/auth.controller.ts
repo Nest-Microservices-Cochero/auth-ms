@@ -10,17 +10,17 @@ export class AuthController {
 
   @MessagePattern('auth.register.user')
   registerUser(@Payload() registerUserDto: RegisterUserDto) {
-    /// método del servicio
     return this.authService.registerUser(registerUserDto);
   }
 
   @MessagePattern('auth.login.user')
   loginUser(@Payload() loginUserDto: LoginUserDto) {
-    return loginUserDto;
+    return this.authService.loginUser(loginUserDto);
   }
 
+  /// Terminar método para verificar token
   @MessagePattern('auth.verify.user')
-  verifyToken() {
-    return 'verify user';
+  verifyToken(@Payload() token: string) {
+    return this.authService.verifyToken(token);
   }
 }

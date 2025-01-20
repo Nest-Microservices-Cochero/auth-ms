@@ -5,6 +5,7 @@ interface EnvVars {
   PORT: number;
 
   /// 1
+  JWT_SECRET: string;
   NATS_SERVERS: string[];
 }
 
@@ -13,6 +14,7 @@ const envsSchema = joi
     PORT: joi.number().required(),
 
     /// 2
+    JWT_SECRET: joi.string().required(),
     NATS_SERVERS: joi.array().items(joi.string()).required(),
   })
   .unknown(true);
@@ -33,5 +35,6 @@ export const envs = {
   port: envVars.PORT,
 
   /// 4
+  jwtSecret: envVars.JWT_SECRET,
   natsServers: envVars.NATS_SERVERS,
 };
